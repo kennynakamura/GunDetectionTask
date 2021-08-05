@@ -22,8 +22,6 @@ class GunDetectionTask:
         configPath = System.getProperty('iped.root') + '/models/yolov3_custom_test.cfg'
         global net
         net = cv2.dnn.readNetFromDarknet(configPath,weightsPath)   
-        
-        cv2.setNumThreads(1)
  
         return
     
@@ -74,8 +72,6 @@ class GunDetectionTask:
             else:
               flag = 'N'    
             return flag
-       
-       print(cv2.getNumThreads())
        
        img_path = item.getTempFile().getAbsolutePath()
        img = cv2.imread(img_path)
